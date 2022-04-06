@@ -11,6 +11,10 @@ Aby utworzyć własny wpis w menu musisz:
 
 
 
+from calendar import *
+
+
+
 class MenuCommand:
     def description(self):
         '''Zwróć nazwę z pozycji menu'''
@@ -31,13 +35,14 @@ class NewEvent(MenuCommand):
         self.title = input("Title: ")
         self.date = input("Date (DD.MM.YYYY): ")
         self.time = input("Time (HH.MM): ")
+        calendar = []
         dict = {
             "title": self.title,
             "date": self.date,
             "time": self.time
         }
-        print(dict)
-        event = "Title: "+dict("title")
+        event = str("Title: "+dict['title']+"\nDate: "+dict['date']+", "+dict['time'])
+        print(calendar)
         
 
 

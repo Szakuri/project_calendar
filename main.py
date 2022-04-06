@@ -3,6 +3,7 @@ from menu import Menu, MenuCommand, NewEvent, ExitCommand
 from calendar import *
 
 
+
 #
 # w tym miejscu możesz napisać kod odpowiedzialny za menu (polecenia)
 # i strategie wyświetlania wydarzeń z kalendarza
@@ -43,5 +44,5 @@ if __name__ == "__main__":
 
 
 
-0
+
 
