@@ -28,6 +28,9 @@ def main():
     # tutaj możesz dodać kolejne polecenia do menu
     menu.add_command(ExitCommand(menu))
 
+    menu.add_command(NewEvent(menu))
+
+
     menu.run()
 
 
@@ -35,3 +38,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+x = Menu()
+print(x._commands)

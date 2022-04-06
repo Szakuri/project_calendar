@@ -37,14 +37,14 @@ class NewEvent(MenuCommand):
 
 class ExitCommand(MenuCommand):
     def __init__(self, menu):
-        '''...'''
+        self.menu = menu
 
     def description(self):
-        return "Wyjście"
+        return "Exit"
 		
 
     def execute(self):
-        '''...'''
+        self._menu.stop()
 
 
 class Menu:
@@ -53,7 +53,8 @@ class Menu:
         self._true_run = True
 
     def add_command(self, cmd):
-        '''...'''
+        self._commands.append(cmd)
+
 
     def run(self):
         while self._true_run:
@@ -61,13 +62,14 @@ class Menu:
             for i, cmd in enumerate(self._commands):
                 print("{}. {}".format(i, cmd.description()))
             option = int(input("Select menu item (1-4): "))
-            if option < 0 or option >= len(self._commands):
+            if option < 0 or option >= 4:
                 print("Invalid input")
             else:
                 self._commands[option].execute()
     def stop(self):
-        '''...'''
+        self._true_run = False
 
+    
     def _display_menu(self):
         '''...'''
 
