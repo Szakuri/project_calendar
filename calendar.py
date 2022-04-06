@@ -19,8 +19,3 @@ class ListingStrategy:
 def list_calendar(calendar, listing_strategy):
     listing_strategy.begin()
 
-    for event in calendar:
-        '''...'''
-		pass
-
-    listing_strategy.end()

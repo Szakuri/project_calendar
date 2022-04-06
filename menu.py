@@ -21,6 +21,8 @@ class MenuCommand:
         raise NotImplementedError
 
 class NewEvent(MenuCommand):
+    def __init__(self, menu):
+        self._menu = menu
     def description():
         return "1. New event"
     def execute(self, title, date, hours):
@@ -47,14 +49,22 @@ class ExitCommand(MenuCommand):
 
 class Menu:
     def __init__(self):
-        '''...'''
+        self._commands = []
+        self._true_run = True
 
     def add_command(self, cmd):
         '''...'''
 
     def run(self):
-        '''...'''
-		
+        while self._true_run:
+   
+            for i, cmd in enumerate(self._commands):
+                print("{}. {}".format(i, cmd.description()))
+            option = int(input("Select menu item (1-4): "))
+            if option < 0 or option >= len(self._commands):
+                print("Invalid input")
+            else:
+                self._commands[option].execute()
     def stop(self):
         '''...'''
 
