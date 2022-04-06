@@ -1,7 +1,7 @@
-''' importy 
-from menu import ...
-from calendar import ...
-'''
+
+from menu import *
+from calendar import *
+
 
 #
 # w tym miejscu możesz napisać kod odpowiedzialny za menu (polecenia)
@@ -30,4 +30,8 @@ def main():
 
     menu.run()
 
-main()
+
+
+
+if __name__ == "__main__":
+    main()

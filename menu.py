@@ -9,6 +9,8 @@ Aby utworzyć własny wpis w menu musisz:
 '''
 
 
+
+
 class MenuCommand:
     def description(self):
         '''Zwróć nazwę z pozycji menu'''
@@ -17,6 +19,18 @@ class MenuCommand:
     def execute(self):
         '''Wykonanie kodu dla danej pozycji menu'''
         raise NotImplementedError
+
+class NewEvent(MenuCommand):
+    def description():
+        return "1. New event"
+    def execute(self, title, date, hours):
+        self.title = title
+        self.date = date
+        self.hours = hours
+        self.title = input("Title: ")
+        self.date = input("Date (DD.MM.YYYY): ")
+        self.hours = input("Time (HH.MM): ")
+
 
 
 class ExitCommand(MenuCommand):
