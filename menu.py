@@ -12,6 +12,7 @@ Aby utworzyć własny wpis w menu musisz:
 
 
 from calendar import *
+from re import X
 
 
 
@@ -36,16 +37,27 @@ class NewEvent(MenuCommand):
         self.date = input("Date (DD.MM.YYYY): ")
         self.time = input("Time (HH.MM): ")
         calendar = []
-        dict = {
+        self.event = {
             "title": self.title,
             "date": self.date,
             "time": self.time
         }
-        event = str("Title: "+dict['title']+"\nDate: "+dict['date']+", "+dict['time'])
-        print(calendar)
+        event = self.event
+        self.str_event = str("Title: "+event['title']+"\nDate: "+event['date']+", "+event['time'])
         
+        calendar.append(self.str_event)
+        print(calendar)
 
+class ListCalendar(MenuCommand):
+    def __init__(self, menu):
+        self.menu = menu
+    
+    def description(self):
+        return "List Calendar"
 
+    def execute(self):
+        print(calendar[0])
+        
 
 
 class ExitCommand(MenuCommand):
@@ -60,10 +72,15 @@ class ExitCommand(MenuCommand):
         self.menu.stop()
 
 
+
+
 class Menu:
     def __init__(self):
         self._commands = []
         self._true_run = True
+        self._reset_but = True
+        self.calendar = []
+    
 
     def add_command(self, cmd):
         self.cmd = cmd
@@ -72,15 +89,17 @@ class Menu:
 
     def run(self):
         while self._true_run:
+
             
    
             for i, cmd in enumerate(self._commands):
                 print("{}. {}".format(i, cmd.description()))
-            option = int(input("Select menu item (1-4): "))
+            option = int(input("Select menu item (0-3): "))
             if option < 0 or option >= len(self._commands):
                 print("Invalid input")
             else:
                 self._commands[option].execute()
+
     def stop(self):
         self._true_run = False
 

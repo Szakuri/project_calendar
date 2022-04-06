@@ -1,5 +1,5 @@
 
-from menu import Menu, MenuCommand, NewEvent, ExitCommand
+from menu import ListCalendar, Menu, MenuCommand, NewEvent, ExitCommand
 from calendar import *
 
 
@@ -10,8 +10,8 @@ from calendar import *
 #
 
 def main():
+
     # wydarzenia przechowuj w liście
-    calendar = []
 
     # zakładamy, że wydarzenie to słownik z kluczami title, date, time
     # jeśli chcesz przechowywać wydarzenie w innej strukturze danych
@@ -28,7 +28,9 @@ def main():
 
     # tutaj możesz dodać kolejne polecenia do menu
     menu.add_command(NewEvent(menu))
+    menu.add_command(ListCalendar(menu))
     menu.add_command(ExitCommand(menu))
+
 
     
 
