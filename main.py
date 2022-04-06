@@ -1,5 +1,5 @@
 
-from menu import *
+from menu import Menu, MenuCommand, NewEvent, ExitCommand
 from calendar import *
 
 
@@ -26,9 +26,10 @@ def main():
     menu = Menu()
 
     # tutaj możesz dodać kolejne polecenia do menu
+    menu.add_command(NewEvent(menu))
     menu.add_command(ExitCommand(menu))
 
-    menu.add_command(NewEvent(menu))
+    
 
 
     menu.run()
@@ -42,5 +43,5 @@ if __name__ == "__main__":
 
 
 
-x = Menu()
-print(x._commands)
+0
+
