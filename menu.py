@@ -22,7 +22,7 @@ class MenuCommand:
 class NewEvent(MenuCommand):
     def __init__(self, menu):
         self.menu = menu
-        self._calendar = []
+        self.calendar = []
 
     def description(self):
         return "New event"
@@ -38,18 +38,24 @@ class NewEvent(MenuCommand):
         }
         event = self.event
         self.str_event = str("Title: "+event['title']+"\nDate: "+event['date']+", "+event['time'])
-        self._calendar.append(self.str_event)
-        print(self._calendar)
+        calendar = self.calendar
+        calendar.append(self.str_event)
+        
+        print(self.calendar)
+        
 
 class ListCalendar(MenuCommand):
     def __init__(self, menu):
         self.menu = menu
+
     
     def description(self):
         return "List Calendar"
 
     def execute(self):
-        print(NewEvent.execute())
+        event = NewEvent(self)
+        calendar = event.calendar
+        print(calendar)
         
 
 

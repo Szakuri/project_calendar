@@ -8,7 +8,7 @@ from calendar import *
 
 def main():
 
-    calendar =  []
+
   
 
     menu = Menu()
