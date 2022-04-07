@@ -57,7 +57,23 @@ class ListCalendar(MenuCommand):
         calendar = event.calendar
         print(calendar)
         
+class ExportToCal:
+    def __init__(self, menu):
+        self.menu = menu
+    
+    def description(self):
+        return "Export calendar to iCalendar"
 
+    def execute(self):
+        print("""
+        BEGIN: VCALENDAR
+        VERSION:2.0
+        BEGIN:VTIMEZONE
+        RZID:Europe/Warsaw
+        X-LIC-LOCATION:Europe/Warsaw
+        END:VTIMEZONE
+        END:VCALENDAR
+        """)
 
 class ExitCommand(MenuCommand):
     def __init__(self, menu):
